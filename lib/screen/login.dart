@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:metre_mobile/model/UsuarioModel.dart';
 
-class Login extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginPageState extends State<LoginPage> {
   var _usuarioController = TextEditingController();
   var _senhaController=TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
@@ -66,7 +66,7 @@ class _LoginState extends State<Login> {
                   child: RaisedButton(
                     textColor: Colors.white,
                     child: Text("Entrar"),
-                    onPressed: ()=>_login(),
+                    onPressed: ()=>_LoginPage(),
                   ),
                 )
               ],
@@ -77,7 +77,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _login() {
+  _LoginPage() {
     print(_usuarioController.text);
     print(_senhaController.text);
 //    if(_formKey.currentState.validate()){

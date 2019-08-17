@@ -9,11 +9,12 @@ void main() => runApp(
     initialRoute: "login",
     theme: ThemeData(
       primaryColor: Colors.deepOrange,
-      buttonColor: Colors.deepOrangeAccent
+      buttonColor: Colors.deepOrangeAccent,
+      backgroundColor: Colors.white,
     ),
     routes: {
-      "login": (context) => Login(),
-      "home": (context) => Home(),
+      "login": (context) => LoginPage(),
+      "home": (context) => HomePage(),
     },
   )
 );

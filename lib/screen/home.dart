@@ -9,10 +9,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     MesaModel mesaModel = MesaModel();
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Metre Mobile"),
       ),
@@ -59,13 +61,18 @@ class _HomePageState extends State<HomePage> {
           return Text("Erro ao conectar no servidor");
         case ConnectionState.done:
           List<Mesa> mesas = snapshot.data;
-          mesas=mesas.where((m)=>m.situacao=='Aberta'||m.situacao=='Recebendo').toList();
+          mesas = mesas
+              .where((m) => m.situacao == 'Aberta' || m.situacao == 'Recebendo')
+              .toList();
           mesas.sort((m1, m2) =>
               int.parse(m1.numeroMesa).compareTo(int.parse(m2.numeroMesa)));
           return GridView.builder(
+            padding: const EdgeInsets.all(2),
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: () => _carregaMesa(mesas[index]),
+                onTap: () {
+                  _validaStatusMesa(mesas[index], context);
+                },
                 child: Container(
                     padding: const EdgeInsets.all(6),
                     color: _getColorBySituacao(mesas[index].situacao),
@@ -82,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 18),
                         ),
                         Text(
-                          "R\$ ${mesas[index].valorTotal}",
+                          "R\$ ${mesas[index].valorTotal.toStringAsFixed(2)}",
                           textAlign: TextAlign.right,
                           style: TextStyle(color: Colors.white, fontSize: 12),
                         ),
@@ -104,15 +111,26 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  _validaStatusMesa(Mesa mesa, BuildContext context) {
+    if (mesa.situacao == 'Recebendo') {
+      Scaffold.of(context).showSnackBar(SnackBar(
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 3),
+        content: Text("Conta em Recebimento!\nVá até o caixa para reabrir a conta!"),
+      ));
+    } else {
+      _carregaMesa(mesa);
+    }
+  }
+
   _getColorBySituacao(String situacao) {
-    switch(situacao){
+    switch (situacao) {
       case "Aberta":
         return Colors.green[400];
       case "Recebendo":
         return Colors.red[400];
-        default:
+      default:
         return Colors.blue[400];
-
     }
   }
 

@@ -13,7 +13,7 @@ class Mesa{
     this.idMesa=json["idMesa"];
     this.numeroMesa=json["numeroMesa"];
     this.situacao=json["situacao"];
-    this.valorTotal=json["valorTotal"] + 0.00;
+    this.valorTotal=json["valorTotal"] as double;
   }
 
 }

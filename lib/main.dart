@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:metre_mobile/screen/home.dart';
-import 'package:metre_mobile/screen/login.dart';
+import 'package:metre_mobile/screen/home_page.dart';
+import 'package:metre_mobile/screen/login_page.dart';
+import 'package:metre_mobile/screen/novo_item_page.dart';
 
 void main() => runApp(
   MaterialApp(
@@ -8,13 +9,18 @@ void main() => runApp(
     debugShowCheckedModeBanner: false,
     initialRoute: "login",
     theme: ThemeData(
-      primaryColor: Colors.deepOrange,
-      buttonColor: Colors.deepOrangeAccent,
+      primaryColor: Colors.deepOrangeAccent,
+      buttonColor: Colors.deepOrange,
       backgroundColor: Colors.white,
+      accentColor: Colors.deepOrangeAccent,
+      cursorColor: Colors.deepOrangeAccent,
+      focusColor: Colors.deepOrange,
+      indicatorColor: Colors.deepOrange
     ),
     routes: {
       "login": (context) => LoginPage(),
       "home": (context) => HomePage(),
+      "itemPedido": (context) => NovoItemPage(),
     },
   )
 );

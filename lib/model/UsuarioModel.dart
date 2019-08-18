@@ -1,18 +1,19 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:metre_mobile/entity/Usuario.dart';
 
 class UsuarioModel{
 
-  String authToken="";
+  Usuario usuarioLogado;
 
-  Future<bool> login(String usuario, String senha) async{
-    var response = await http.get("http://metre.ddns.net/services/analize/usuario/login/?user=${usuario}&pass=${senha}");
+  Future<bool> login() async{
+    String usuario = usuarioLogado.usuario;
+    String senha = usuarioLogado.senha;
+    var response = await http.post("http://metre.ddns.net/services/ticket/login/${usuario}/${senha}");
     if(response.statusCode==200){
-      authToken=json.decode(response.body)["auth_token"];
+      usuarioLogado=Usuario.fromJson(json.decode(response.body));
       return true;
-    }else{
-      print('erro na api');
-      return false;
     }
+    return false;
   }
 }

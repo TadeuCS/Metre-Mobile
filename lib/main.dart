@@ -12,10 +12,10 @@ void main() => runApp(
       primaryColor: Colors.deepOrangeAccent,
       buttonColor: Colors.deepOrange,
       backgroundColor: Colors.white,
-      accentColor: Colors.deepOrangeAccent,
       cursorColor: Colors.deepOrangeAccent,
-      focusColor: Colors.deepOrange,
-      indicatorColor: Colors.deepOrange
+      indicatorColor: Colors.white,
+      focusColor: Colors.white,
+      hintColor: Colors.white
     ),
     routes: {
       "login": (context) => LoginPage(),

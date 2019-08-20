@@ -90,6 +90,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome:
+    dependency: "direct main"
+    description:
+      name: font_awesome
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.10.1"
   http:
     dependency: "direct main"
     description:
@@ -152,7 +159,7 @@ packages:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0"
+    version: "2.2.1"
   qrcode_reader:
     dependency: "direct main"
     description:
@@ -167,6 +174,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
+  scoped_model:
+    dependency: "direct main"
+    description:
+      name: scoped_model
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -241,7 +255,7 @@ packages:
       name: xml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.5.0"
+    version: "3.4.1"
   yaml:
     dependency: transitive
     description:
@@ -250,5 +264,5 @@ packages:
     source: hosted
     version: "2.1.16"
 sdks:
-  dart: ">=2.4.0 <3.0.0"
+  dart: ">=2.2.2 <3.0.0"
   flutter: ">=1.5.0 <2.0.0"

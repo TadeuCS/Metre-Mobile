@@ -58,10 +58,14 @@ class _LoginPageState extends State<LoginPage> {
                             Text("Metre Mobile",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: Colors.white)),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Icon(Icons.copyright, color: Colors.white, size: 9,),
-                              )
+                            Padding(
+                              padding: const EdgeInsets.only(left: 6),
+                              child: Icon(
+                                Icons.copyright,
+                                color: Colors.white,
+                                size: 9,
+                              ),
+                            )
                           ],
                         ),
                       ),

@@ -12,7 +12,7 @@ class MesaModel{
       for (var item in objeto) {
         lista.add(Mesa.fromJson(item));
       }
-      
+
     }
     return lista;
   }
